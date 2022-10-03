@@ -34,7 +34,7 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.public)) {
     next();
   } else if (to.matched.some((ruta) => ruta.meta.requireAuth)) {
-    const user = 'ok'; //TODO usuario actual Esta Logueado
+    const user = localStorage.getItem('dataUser') || null;
     if (!user) {
       next({ name: 'Login' });
     } else {

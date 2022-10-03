@@ -171,4 +171,13 @@ button:disabled:hover {
   cursor: not-allowed;
   opacity: 0.5;
 }
+
+@media screen and (max-width: 480px) {
+  .card-login {
+    min-width: 300px;
+  }
+  .bg-image {
+    background-size: cover;
+  }
+}
 </style>

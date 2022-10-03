@@ -42,8 +42,18 @@
                 stacked="md"
                 show-empty
                 small
+                striped
+                hover
+                :foot-clone="true"
                 @filtered="onFiltered"
               >
+                <template #thead-top="">
+                  <b-tr>
+                    <b-th colspan="6"><span class="sr-only"></span></b-th>
+
+                    <b-th variant="dark" colspan="4">Información Medallas</b-th>
+                  </b-tr>
+                </template>
               </b-table>
               <b-col sm="7" md="6" class="my-1">
                 <b-pagination
@@ -61,7 +71,7 @@
         <b-tab title="Medallas">
           <b-card-text>
             <section class="row">
-              <div class="col-4">
+              <b-col cols="12" md="6" lg="4">
                 <div class="card-medals">
                   <h3>Oro</h3>
                   <img src="../assets/img/gold.png" alt="gold" />
@@ -69,15 +79,15 @@
                   <div class="mt-3">
                     <b-button v-b-modal.modal-1>Mas Info</b-button>
 
-                    <b-modal id="modal-1" title="Detalle medalla de Oro" ok-only>
+                    <b-modal id="modal-1" title="Detalle medalla de Oro" ok-only centered>
                       <p class="my-4">
                         La medalla de Oro se le otorga al deportista con el mejor resultado de una prueba deportiva
                       </p>
                     </b-modal>
                   </div>
                 </div>
-              </div>
-              <div class="col-4">
+              </b-col>
+              <b-col cols="12" md="6" lg="4">
                 <div class="card-medals">
                   <h3>Plata</h3>
                   <img src="../assets/img/silver.png" alt="silver" />
@@ -85,7 +95,7 @@
                   <div class="mt-3">
                     <b-button v-b-modal.modal-2>Mas Info</b-button>
 
-                    <b-modal id="modal-2" title="Detalle medalla de Plata" ok-only>
+                    <b-modal id="modal-2" title="Detalle medalla de Plata" ok-only centered>
                       <p class="my-4">
                         La medalla de Plata se le otorga al deportista con el segundo mejor resultado de una prueba
                         deportiva
@@ -93,8 +103,8 @@
                     </b-modal>
                   </div>
                 </div>
-              </div>
-              <div class="col-4">
+              </b-col>
+              <b-col cols="12" md="6" lg="4">
                 <div class="card-medals">
                   <h3>Bronce</h3>
                   <img src="../assets/img/bronze.png" alt="bronze" />
@@ -102,14 +112,14 @@
                   <div class="mt-3">
                     <b-button v-b-modal.modal-3>Mas Info</b-button>
 
-                    <b-modal id="modal-3" title="Detalle medalle de Bronce" ok-only>
+                    <b-modal id="modal-3" title="Detalle medalle de Bronce" ok-only centered>
                       <p class="my-4">
                         La medalla de Bronce se le otorga al deportista con el tercer resultado de una prueba deportiva
                       </p>
                     </b-modal>
                   </div>
                 </div>
-              </div>
+              </b-col>
             </section>
           </b-card-text>
         </b-tab>
@@ -191,5 +201,10 @@ export default {
   border-radius: 1rem;
   padding: 1.2rem;
   text-align: center;
+  transition: transform 0.7s linear, box-shadow 0.7s linear;
+}
+.card-medals:hover {
+  box-shadow: 0 0 13px 3px #00000050;
+  transform: scale(1.03) translateY(-10px);
 }
 </style>
